@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/Login.css">
+    <link rel="icon" href="images/logo.jpeg" />
+    <title>Login</title>
+</head>
+<body>
+  <div class="flex translate-y-20 translate-x-10 justify-center ">
+    <h1 class="text-[50px] font-semibold text-[#22215B]">Sign In</h1>
+  </div>
+
+  <div class="flex justify-center h-[100vh] items-center ml-28">
+    <div class="flex bg-white justify-center h-[300px] w-[25%] mb-40 shadow-3xl relative shadow-black shadow-sm">
+      <form action="/Login" method="post" class="mx-5 mt-5">
+        <input
+          required
+          type="email"
+          name="email"
+          placeholder="Email address"
+          class="border-2 border-gray-300 px-3 pb-3  w-80 "
+        />
+
+        <input
+          required
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="border-2 border-gray-300 px-3 pb-3 w-80 mt-3 "
+          autoComplete="off"
+        />
+
+        <button
+          class="text-[18px] font-bold text-white w-56 h-12 bg-[#315EE7] rounded-lg translate-y-[22px] translate-x-[50px] hover:bg-[#436ef0] hover:ease-in-out "
+          type="submit">
+          Log In
+        </button>
+
+
+        <a
+          href="/SignUp"
+          class="flex justify-center font-semibold text-[#315EE7] mt-14"
+        >
+          Create New Account
+        </a>
+      </form>
+    </div>
+  </div>
+    
+</body>
+</html>
+
+

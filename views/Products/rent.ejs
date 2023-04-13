@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpeg" />
+    <link rel="stylesheet" href="styles/rent.css">
+    <title></title>
+</head>
+<body>
+  <div class="max-w-full h-16 bg-[#315EE7]">
+      
+    <label htmlFor="search"></label>
+    <div class="h-16 flex items-center">
+     
+      <a href="/Home"><img src=images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
+      </div>
+<span class="flex justify-center">
+    <h1 class="text-[50px] font-semibold text-[#22215B] mt-10">Rent-up  Product</h1>
+</span>
+    
+
+    <div class="flex justify-center h-[100vh] items-center">
+        <div class="flex bg-white justify-center h-[350px] w-[22%] mb-64 shadow-3xl relative shadow-black shadow-sm">
+          <form action="rent" method="post" enctype="multipart/form-data" class="mx-5 mt-5" name="data">
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload Product image</label>
+            <input class="block w-full text-sm  text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="image" id="image" type="file">
+    
+
+            <input type="number" name="price" class="bg-gray-50 border mt-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Price (in Rs.)" min="0" max="999999" required>
+
+
+            
+            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 mt-4 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="description" placeholder="Description..."></textarea>
+
+
+    
+            <button
+              class="text-[18px] font-bold text-white w-56 h-12 bg-[#315EE7] rounded-lg translate-y-[22px] translate-x-[20px] hover:bg-[#436ef0] hover:ease-in-out "
+              type="submit">
+              Post
+            </button>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
