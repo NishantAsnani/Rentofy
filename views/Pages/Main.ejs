@@ -30,18 +30,20 @@
           <BsSearch class="inline-block relative right-8 text-xl cursor-pointer" />
           <FaShoppingCart class="text-white text-xl cursor-pointer hover:-translate-y-2 ease-in-out duration-200" />
          
-          <button className="cursor-pointer text-white font-semibold">
-            <img src="<%=loggedInUser.Profile_Pic%>" class="w-11 h-11 rounded-full translate-y-9 translate-x-44" alt="" >
+          
+          <form action="/user/<%=loggedInUser.id%>" method="post">
+          <button type="submit">
+            <img src="<%=loggedInUser.Profile_Pic%>" class="w-14 h-[50px] rounded-full translate-y-11 translate-x-44" alt="" >
           </button>
+        </form>
          
-         
-          <button class=" cursor-pointer text-white font-semibold text-[17px] relative left-44 top-[18px]">
+          <button class=" cursor-pointer text-white font-semibold text-[17px] relative left-60 top-[1px]">
             Hi ,<%=loggedInUser.Firstname%>
           </button>
 
           
           <form action="/logout" method="post">
-          <button class=" cursor-pointer text-white font-semibold text-[17px] relative left-[430px] bottom-3">
+          <button class=" cursor-pointer text-white font-semibold text-[17px] relative left-[430px] bottom-7">
             Logout
           </button>
         </form>

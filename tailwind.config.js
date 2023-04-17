@@ -2,12 +2,12 @@
 module.exports = {
   content: [,
             // "./views/Login.ejs",
-            "./views/Pages/Main.ejs",
+            "./views/Products/Show.ejs",
             // "./views/Signup.ejs",
             // "./views/Home.ejs",
             // "./views/FirstPage.ejs",
             // './views/Products/show.ejs',
-            "./node_modules/flowbite/**/*.js"
+            // "./node_modules/flowbite/**/*.js"
           ],
   theme: {
     extend: {

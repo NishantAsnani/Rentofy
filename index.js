@@ -52,7 +52,7 @@ const mongoDBStore=new MongoDBStore({
 
 
 app.use(session({
-    secret:'jhvfnvrb',
+    secret:process.env.COOKIE_SECRET,
     store:mongoDBStore,
     resave:false,
     saveUninitialized:false,
@@ -110,7 +110,23 @@ app.post('/Signup',upload.single('Profile_Pic'),async (req,res)=>{
 })
 
 
-
+app.post('/rent',upload.single('image'),async (req,res)=>{
+    const ImageResult=await cloudinary.uploader.upload(req.file.path) 
+    const Product=new product({
+        image:ImageResult.url,
+        description:req.body.description,
+        price:req.body.price,
+        author:req.session.user.id
+    })
+    await Product.save()
+    .then(()=>{
+        console.log("product added in database ")
+    })
+    .catch((e)=>{
+        console.log("Oh no some error occured ",e);
+    })
+    res.redirect('/show')
+    })
 
 app.post('/Login',async(req,res)=>{
     const {email,password}=req.body;
@@ -155,11 +171,19 @@ app.post('/logout',(req,res)=>{
     })
 })
 
+
+app.post('/user/:id',async (req,res)=>{
+    const {id}=req.params
+    const userinfo=await user.findById(id);
+    res.render('Pages/Profile',{userinfo})
+})
+
 app.get('/',(req,res)=>{
     res.render('Pages/FirstPage')
 })
 
 app.get('/Login',(req,res)=>{
+    console.log(req.query);
     res.render('Pages/Login')
 })
 
@@ -191,27 +215,12 @@ app.get('/rent',isAuth,(req,res)=>{
 app.get('/show',isAuth,async (req,res)=>{
     const productdata=await product.find({}).populate('author')
     const sessionId=req.session.user.id
+    console.log(sessionId)
     res.render('Products/show',{productdata,sessionId})
 })
 
 
-app.post('/rent',upload.single('image'),async (req,res)=>{
-    const ImageResult=await cloudinary.uploader.upload(req.file.path) 
-    const Product=new product({
-        image:ImageResult.url,
-        description:req.body.description,
-        price:req.body.price,
-        author:req.session.user.id
-    })
-    await Product.save()
-    .then(()=>{
-        console.log("product added in database ")
-    })
-    .catch((e)=>{
-        console.log("Oh no some error occured ",e);
-    })
-    res.redirect('/show')
-    })
+
 
 
 
