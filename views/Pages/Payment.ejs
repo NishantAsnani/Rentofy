@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Gateway</title>
+    <title>Payment</title>
 </head>
-
 <body>
     <h1>This is Payment Gateway for Rentofy...</h1>
 
     <form method="post" id="my_form">
-        <label for="item1">Pay 99999/- for your item...</label>
-        <input type="number" name="itm1" id="item1" required>
+        <label for="<%=TotalPrice%>" >Pay <%=TotalPrice%>/- for your item...</label>
+        <input type="hidden" name="<%=TotalPrice%>" value="<%=TotalPrice%>" id="item1">
         <button type="submit">Click here to PAY!</button>
     </form>
-
     <div>
         <h3>CLick here to pay...</h3>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -28,26 +25,25 @@
 
                 var amount = document.getElementById('item1').value;
 
-                var response = await fetch("http://localhost:5500/payment"
+                var response = await fetch("http://localhost:3001/payment"
                     , {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                     }
                 );
+                console.log(response);
 
                 var orderData = response.json();
 
                 var options = {
                     "key": "rzp_test_Qt8FL35NaoTLl3", // Enter the Key ID generated from the Dashboard
-                    "amount": amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    "amount": amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                     "currency": "INR",
                     "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                     "handler": function (response) {
-                        alert(response.razorpay_payment_id);
-                        window.location.href = "payed.html"
+                        window.location.href ="payed"
                     },
                 };
-
                 var rzp1 = new Razorpay(options);
                 rzp1.open();
             });
@@ -56,5 +52,4 @@
         </script>
     </div>
 </body>
-
 </html>

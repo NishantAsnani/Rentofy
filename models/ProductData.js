@@ -21,7 +21,7 @@ const ProductSchema=Schema({
     }
 })
 
+const product=mongoose.model('product',ProductSchema)
 
-
-module.exports=ProductSchema
+module.exports=product
 

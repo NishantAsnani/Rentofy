@@ -38,7 +38,14 @@ const userData=new Schema({
     Profile_Pic:{
         type:String,
         required:true
-    }
+    },
+    products:
+    [
+        {
+            type:Schema.Types.ObjectId,
+            ref:'product'
+        }
+    ]
 })
 const user=mongoose.model('user',userData)
 

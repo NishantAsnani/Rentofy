@@ -32,6 +32,7 @@
     "multer-storage-cloudinary": "^4.0.0",
     "path": "^0.12.7",
     "populate": "^5.0.1",
+    "razorpay": "^2.8.6",
     "tailwindcss-animation-delay": "^1.0.7"
   }
 }
