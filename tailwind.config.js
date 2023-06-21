@@ -1,13 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [,
-            // "./views/Login.ejs",
-            "./views/Products/Show.ejs",
-            // "./views/Signup.ejs",
-            // "./views/Home.ejs",
-            // "./views/FirstPage.ejs",
-            // './views/Products/show.ejs',
-            // "./node_modules/flowbite/**/*.js"
+            "./views/Pages/Login.ejs",
+            "./views/Pages/Payment.ejs",
+            "./views/Pages/Profile.ejs",
+            "./views/Pages/payed.ejs",
+            "./views/Pages/Signup.ejs",
+            "./views/Pages/Home.ejs",
+            "./views/Pages/FirstPage.ejs",
+            "./views/Pages/Main.ejs",
+            './views/Products/show.ejs',
+            './views/Products/rent.ejs',
+            './views/Products/cart.ejs',
+            "./node_modules/flowbite/**/*.js"
           ],
   theme: {
     extend: {

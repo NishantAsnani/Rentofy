@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="images/logo.jpeg"/>
 </head>
+
 <body>
-    <h1>This is Payment Gateway for Rentofy...</h1>
+    <div class="max-w-full h-16 bg-[#315EE7]">
+      
+       
+        <div class="h-16 flex items-center">
+            
+          <a href="/home"><img src=images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
+          </div>
+          
+<span class="flex justify-center">
+    <h1 class="text-[50px] font-semibold text-[#22215B] mt-10">Welcome to Payment Gateway for Rentofy</h1>
+</span>
+
 
     <form method="post" id="my_form">
-        <label for="<%=TotalPrice%>" >Pay <%=TotalPrice%>/- for your item...</label>
+        <div class="flex justify-center mt-11">
+        
+        <span class="text-[30px] font-semibold text-[#22215B]">Your Bill is &#8377;<%=TotalPrice%>: </span>
         <input type="hidden" name="<%=TotalPrice%>" value="<%=TotalPrice%>" id="item1">
-        <button type="submit">Click here to PAY!</button>
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-3 ml-3">Click here to PAY!</button>
+
+        </div>
     </form>
     <div>
-        <h3>CLick here to pay...</h3>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-        <script>
+        
+           <script>
+            
+
 
             var form = document.getElementById('my_form');
-            form.addEventListener('submit', async function(event){
+            form.addEventListener('submit', async function (event) {
                 event.preventDefault();
 
                 var amount = document.getElementById('item1').value;
@@ -31,25 +52,45 @@
                         headers: { "Content-Type": "application/json" },
                     }
                 );
+
+
+                // Define the PowerShell command
+                
+                
+
+                // Execute the PowerShell command
+
+
                 console.log(response);
 
                 var orderData = response.json();
 
                 var options = {
                     "key": "rzp_test_Qt8FL35NaoTLl3", // Enter the Key ID generated from the Dashboard
-                    "amount": amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    "amount": amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                     "currency": "INR",
                     "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                     "handler": function (response) {
-                        window.location.href ="payed"
+                        
+                        
+
+                    
+
+                       
+                        
+
+                        window.location.href = "payed"
                     },
                 };
                 var rzp1 = new Razorpay(options);
                 rzp1.open();
             });
 
-            
-        </script>
-    </div>
+
+        </script> 
+    
+
+</div>
 </body>
+
 </html>

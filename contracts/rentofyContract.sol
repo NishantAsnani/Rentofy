@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 contract RentofyContract {
@@ -29,7 +28,8 @@ contract RentofyContract {
         uint256 _rentalPrice,
         uint256 _maxRentingTime,
         uint256 _lateReturnFee
-    ) {
+    ) 
+    {
         ownerName = _ownerName;
         productOwner[msg.sender] = Products(_ownerName, _ownerProducts);
         rentalPrice = _rentalPrice; // In terms of INR
@@ -44,7 +44,6 @@ contract RentofyContract {
                 !rentingInfo[productOwner[msg.sender].itemName[i]].isRenting,
                 "Already renting"
             );
-
             rentingInfo[productOwner[msg.sender].itemName[i]] = RentingInfo(
                 true,
                 timeInDays,

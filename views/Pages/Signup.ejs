@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/Signup.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="images/logo.jpeg" />
     
     <title>Signup</title>
@@ -16,14 +16,14 @@
 
 
 <div class="flex translate-y-14 translate-x-10 justify-center ">
-    <h1 class='text-[50px] font-semibold text-[#22215B]'>Sign Up</h1>
+    <h1 class='text-[50px] mb-8 font-semibold text-[#22215B]'>Sign Up</h1>
   </div>
       <div class="flex justify-center ml-24 translate-y-20 ">
         <img src="images/logo.png" alt="" class="" />
     </div>
 
         <div class="flex justify-center h-[100vh] items-center  ml-28">
-            <div class="flex mt-20 justify-center rounded-xl bg-slate-100 h-[625px] w-4/12 shadow-sm shadow-black">
+            <div class="flex mt-24 mb-2 justify-center rounded-xl bg-slate-100 h-[730px] w-4/12 shadow-sm shadow-black">
                 <form action="/Signup" enctype="multipart/form-data" method="post" class="mx-5 mt-5">
                     <div class="font-bold text-[25px] flex justify-center mb-2 -translate-y-4">
                         Create a new account
@@ -43,15 +43,17 @@
 
                     <input type="password" name="password" placeholder="Password"  class="flex justify-center border-[1px] rounded-md border-gray-300 px-3 pb-3 -translate-y-7 mb-3 w-[350px] ml-40 -translate-x-32" required  />
 
+                    <textarea rows="3" cols="50" name="address" class="-translate-y-7  block resize ml-8 pb-2.5 mb-6 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" required></textarea>
 
-                    <label class="block mb-2 translate-x-8 -translate-y-6 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload Profile Pic</label>
-                    <input class="block w-9/12 text-sm translate-x-8 -translate-y-6  text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="Profile_Pic" id="image" type="file" required>
+
+                    <label class="block mb-2 translate-x-8 -translate-y-10 text-sm font-medium text-gray-900 dark:text-white" for="image">Upload Profile Pic</label>
+                    <input class="block w-9/12 text-sm translate-x-8 -translate-y-10  text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="Profile_Pic" id="image" type="file" required>
     
-                    <div class="text-[#606770] text-[12px] ml-8 mb-2 -translate-y-4"> 
+                    <div class="text-[#606770] text-[12px] ml-8 mb-2 -translate-y-6"> 
                         Date of birth
                     </div>
 
-                    <select name="Day" value=""  class="w-32 px-2 py-2 rounded-md border-[1px] border-gray-300 ml-8 -translate-y-4" required autoComplete="off">
+                    <select name="Day" value=""  class="w-32 px-2 py-2 rounded-md border-[1px] border-gray-300 ml-8 -translate-y-6" required autoComplete="off">
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -85,7 +87,7 @@
 <option value="31">31</option>
                     </select>
       
-                    <select name="Month" value=''  class="w-32 px-2 py-2 rounded-md border-[1px] border-gray-300 ml-6 -translate-x-2 -translate-y-4" required autoComplete="off">
+                    <select name="Month" value=''  class="w-32 px-2 py-2 rounded-md border-[1px] border-gray-300 ml-6 -translate-x-2 -translate-y-6" required autoComplete="off">
                         <option value="Jan">Jan</option>
                         <option value="Feb">Feb</option>
                         <option value="Mar">Mar</option>
@@ -100,7 +102,7 @@
                         <option value="Dec">Dec</option>
                     </select>
 
-                    <select name="Year" value='' class="w-32 px-2 py-2 rounded-md border-[1px] border-gray-300 translate-x-2 -translate-y-4 " required autoComplete="off">
+                    <select name="Year" value='' class="w-32 px-2 py-2 rounded-md border-[1px] border-gray-300 translate-x-2 -translate-y-6 " required autoComplete="off">
 
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>

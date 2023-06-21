@@ -23,6 +23,7 @@ const razorpayInstance = new razorpay({
   key_id:process.env.RAZORPAY_ID,
   key_secret:process.env.RAZORPAY_SECRET
 });
+const {exec}=require('node:child_process');
 
 
 app.use(express.json());
@@ -79,7 +80,7 @@ const isAuth = (req, res, next) => {
 };
 
 app.post("/Signup", upload.single("Profile_Pic"), async (req, res) => {
-  const { Firstname, Surname, email, Contact, password, Day, Month, Year } =
+  const { Firstname, Surname, email, Contact, password, Day, Month, Year,address } =
     req.body;
   const ImageResult = await cloudinary.uploader.upload(req.file.path);
   const Duplicate = await user.findOne({ email });
@@ -97,6 +98,7 @@ app.post("/Signup", upload.single("Profile_Pic"), async (req, res) => {
       Day,
       Month,
       Year,
+      address,
       Profile_Pic: ImageResult.url,
     });
     await User.save()
@@ -147,11 +149,9 @@ app.post("/Login", async (req, res) => {
       password: User.password,
       Firstname: User.Firstname,
       Profile_Pic: User.Profile_Pic,
-      cart:User.cart,
     };
     req.session.user = sessUser;
     res.redirect("/Main");
-    console.log("validPassword");
   } else {
     res.status(500).json({ msg: "Not done" });
     return;
@@ -205,7 +205,7 @@ app.get("/show", isAuth, async (req, res) => {
   res.render("Products/show", { productdata, session});
 });
 
-app.post("/addproduct/:id", async (req, res) => {
+app.post("/addproduct/:id",isAuth,async (req, res) => {
   const {id}=req.params;
   const userId = req.session.user.id;
   const prodId = await product.findById(id);
@@ -220,7 +220,7 @@ app.post("/addproduct/:id", async (req, res) => {
   }
   else
   {
-    console.log("User already exists");
+    console.log("Product already exists");
     return res.status(400).json({ msg: "User already exists" });
   }
 });
@@ -230,7 +230,6 @@ const id=req.session.user.id
 const USER=await user.findById(id).populate("products");
 const cartItems=USER.products;
 let TotalPrice=0
-
 const prices=cartItems.map((item)=>item.price)
 
 for(let i=0;i<prices.length;i++)
@@ -242,12 +241,12 @@ for(let i=0;i<prices.length;i++)
 res.render('Products/cart',{cartItems,TotalPrice});
 });
 
-app.get('/payment',async(req,res)=>{
+app.get('/payment',isAuth,async(req,res)=>{
 const id=req.session.user.id
 const USER=await user.findById(id).populate("products");
 const cartItems=USER.products;
-console.log(cartItems);
 let TotalPrice=0
+
 
 const prices=cartItems.map((item)=>item.price)
 
@@ -255,45 +254,39 @@ for(let i=0;i<prices.length;i++)
 {
   TotalPrice+=prices[i];
 }
-
-
-  res.render('Pages/Payment',{TotalPrice})
+ res.render('Pages/Payment',{TotalPrice})
 })
 
-app.post('/removeitem/:id',async (req,res)=>{
+app.post('/removeitem/:id',isAuth,async (req,res)=>{
 
 const {id}=req.params;
 const uid=req.session.user.id
-const USER=await user.findById(uid);
-let cartItems=USER.products;
-const idarray=cartItems.map((item)=>item.id);
-// let index=idarray.indexOf(id)
-console.log(typeof(cartItems));
-// console.log(cartItems);
-// cartItems.splice(index,1);
-// console.log(index);
-const isExisting=idarray.findIndex((item)=>item.id===id)
-if(isExisting>=0)
-{
-  cartItems.splice(isExisting,1);
-}
-console.log(isExisting);
-
-// for(item of cartItems)
-// {
-//   if(item.id===id)
-//   {
-//     cartItems.splice(index,1);
-//   }
-// }
-res.redirect('/cart');
+const USER=await user.findById(uid).populate('products');
+await USER.products.pull({ _id: id });
+await USER.save();
+res.redirect('/cart')
 })  
 
-app.post('/payment',async(req,res)=>{
+app.post('/payment',isAuth,async(req,res)=>{
+const id=req.session.user.id
+const removeItems=await user.findByIdAndUpdate(id,{
+  products:[],
+  function(err)
+  {
+    if(err)
+    {
+      console.log(err);
+    }
+    else
+    {
+      console.log("Update sucessful !!");
+    }
+  }
+})
+
+
   var data=(req.body);
   const amount=(parseInt(Object.keys(data)));
-
-
 var order = await razorpayInstance.orders.create({
     amount:amount*100,  // amount in the smallest currency unit
     currency: "INR",
@@ -304,8 +297,8 @@ var order = await razorpayInstance.orders.create({
 
 })
 
-app.get('/payed',(req,res)=>{
-  res.render('Pages/payed');
+app.get('/payed',isAuth,async (req,res)=>{
+res.render('Pages/payed');
 })
 
 app.listen(3001, () => {

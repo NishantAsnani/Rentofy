@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
-    <link rel="stylesheet" href="styles/show.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="images/logo.jpeg"/>
 </head>
 <body>
@@ -28,12 +28,12 @@
 </span>
 
 
-<div class="flex justify-center flex-wrap content-start">
+<div class="flex justify-center flex-wrap content-start max-h-60">
         <% for (data of productdata){%>
             <form action="/addproduct/<%=data.id%>" method="post">    
         <div  class="w-11/12 max-w-sm bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 mt-4 ml-4">
     
-        <img class="p-8 rounded-t-lg max-h-fit"  src="<%=data.image%>" alt="product image" />
+        <img class="p-8 rounded-t-lg max-h-80"  src="<%=data.image%>" alt="<%=data.description%>" />
 
     <div class="px-5 pb-5">
         

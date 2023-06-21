@@ -35,6 +35,10 @@ const userData=new Schema({
         type:String,
         required:true
     },
+    address:{
+        type:String,
+        required:true
+    },
     Profile_Pic:{
         type:String,
         required:true
