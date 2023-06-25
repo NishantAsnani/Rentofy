@@ -1100,6 +1100,10 @@ input:checked + .toggle-bg {
   right: 6rem;
 }
 
+.right-60 {
+  right: 15rem;
+}
+
 .right-8 {
   right: 2rem;
 }
@@ -1118,6 +1122,10 @@ input:checked + .toggle-bg {
 
 .top-3 {
   top: 0.75rem;
+}
+
+.top-36 {
+  top: 9rem;
 }
 
 .top-\[1px\] {

@@ -49,20 +49,28 @@
     <% } %>
 
 
-
-          
-
-<div class=" w-full flex justify-center text-[50px] font-semibold text-[#22215B]">
+<% if(TotalPrice ===0) {%>
+    <div class=" flex justify-center">
+        <h1 class="text-[50px] ml-40 font-semibold text-[#22215B] mt-10">Cart is Empty<h1/>
+        <a href="show" class="mt-10 relative right-60 top-36 text-blue-600">Rent more products</a>    
+    </div>     
+<% } else
+{%>
+    <div class=" w-full flex justify-center text-[50px] font-semibold text-[#22215B]">
    TotalPrice:  <%= TotalPrice %>
 </div>
-
-
 <div class=" flex justify-center">
 <a href="payment" 
 class=" text-white text bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
 Checkout
 </a>
 </div>
+    <% } %>
+
+
+
+
+
 
 
 
