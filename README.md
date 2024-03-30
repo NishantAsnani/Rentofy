@@ -21,14 +21,13 @@ Rentify is an e-commerce platform that allows users to rent products, such as el
 - **Product Rental:** Users can rent products listed on the platform.
 - **Add to Cart:** Ability to add products to a cart for easy checkout.
 - **Payment Integration:** Integration with the Razorpay API for secure payment processing.
-- **User Dashboard:** Dashboard for users to manage their profile, rented items, and transactions.
 
-## Demo
-Include screenshots, GIFs, or a link to the live website if available.
+
+
 
 ## Installation
 1. Clone the repository: `git clone https://github.com/your-username/rentify.git`
-2. Navigate to the project directory: `cd rentify`
+2. Navigate to the project directory: `cd rentofy`
 3. Install dependencies: `npm install`
 
 ## Usage
@@ -58,8 +57,7 @@ Contributions are welcome! Here's how you can contribute:
 - Push to the branch: `git push origin feature-new-feature`
 - Submit a pull request
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 ## Author
-- [Your Name](https://github.com/your-username)
+- [Your Name](https://github.com/NishantAsnani)
