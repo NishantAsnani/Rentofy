@@ -26,7 +26,7 @@ Rentify is an e-commerce platform that allows users to rent products, such as el
 
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/your-username/rentify.git`
+1. Clone the repository: `git clone https://github.com/NishantAsnani/rentify.git`
 2. Navigate to the project directory: `cd rentofy`
 3. Install dependencies: `npm install`
 
@@ -60,4 +60,4 @@ Contributions are welcome! Here's how you can contribute:
 
 
 ## Author
-- [Your Name](https://github.com/NishantAsnani)
+- [Nishant Asnani](https://github.com/NishantAsnani)
