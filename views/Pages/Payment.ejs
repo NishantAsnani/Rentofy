@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="images/logo.jpeg"/>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.jpeg"/>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
        
         <div class="h-16 flex items-center">
             
-          <a href="/home"><img src=images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
+          <a href="/home"><img src=/images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
           </div>
           
 <span class="flex justify-center">
@@ -46,7 +46,7 @@
 
                 var amount = document.getElementById('item1').value;
 
-                var response = await fetch("http://localhost:3001/payment"
+                var response = await fetch("http://localhost:3001/products/payment"
                     , {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -71,14 +71,6 @@
                     "currency": "INR",
                     "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                     "handler": function (response) {
-                        
-                        
-
-                    
-
-                       
-                        
-
                         window.location.href = "payed"
                     },
                 };

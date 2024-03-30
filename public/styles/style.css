@@ -358,6 +358,13 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   /* 2 */
 }
 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9CA3AF;
+  /* 2 */
+}
+
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
@@ -454,6 +461,11 @@ input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1;
 }
 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #6B7280;
+  opacity: 1;
+}
+
 input::placeholder,textarea::placeholder {
   color: #6B7280;
   opacity: 1;
@@ -473,8 +485,7 @@ select:not([size]) {
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
-  -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 [multiple] {
@@ -483,8 +494,7 @@ select:not([size]) {
   background-repeat: unset;
   background-size: initial;
   padding-right: 0.75rem;
-  -webkit-print-color-adjust: unset;
-          print-color-adjust: unset;
+  print-color-adjust: unset;
 }
 
 [type='checkbox'],[type='radio'] {
@@ -492,13 +502,13 @@ select:not([size]) {
      -moz-appearance: none;
           appearance: none;
   padding: 0;
-  -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+  print-color-adjust: exact;
   display: inline-block;
   vertical-align: middle;
   background-origin: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
   flex-shrink: 0;
   height: 1rem;
@@ -574,6 +584,23 @@ select:not([size]) {
   outline: 1px auto inherit;
 }
 
+input[type=file]::-webkit-file-upload-button {
+  color: white;
+  background: #1F2937;
+  border: 0;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  -webkit-margin-start: -1rem;
+          margin-inline-start: -1rem;
+  -webkit-margin-end: 1rem;
+          margin-inline-end: 1rem;
+}
+
 input[type=file]::file-selector-button {
   color: white;
   background: #1F2937;
@@ -591,13 +618,26 @@ input[type=file]::file-selector-button {
           margin-inline-end: 1rem;
 }
 
+input[type=file]::-webkit-file-upload-button:hover {
+  background: #374151;
+}
+
 input[type=file]::file-selector-button:hover {
   background: #374151;
+}
+
+.dark input[type=file]::-webkit-file-upload-button {
+  color: white;
+  background: #4B5563;
 }
 
 .dark input[type=file]::file-selector-button {
   color: white;
   background: #4B5563;
+}
+
+.dark input[type=file]::-webkit-file-upload-button:hover {
+  background: #6B7280;
 }
 
 .dark input[type=file]::file-selector-button:hover {
@@ -908,6 +948,53 @@ input:checked + .toggle-bg {
   --tw-backdrop-sepia:  ;
 }
 
+::-webkit-backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(63 131 248 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
 ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1044,6 +1131,10 @@ input:checked + .toggle-bg {
   bottom: 2.5rem;
 }
 
+.bottom-20 {
+  bottom: 5rem;
+}
+
 .bottom-5 {
   bottom: 1.25rem;
 }
@@ -1098,6 +1189,10 @@ input:checked + .toggle-bg {
 
 .right-24 {
   right: 6rem;
+}
+
+.right-44 {
+  right: 11rem;
 }
 
 .right-60 {
@@ -1690,20 +1785,51 @@ input:checked + .toggle-bg {
   transform: none;
 }
 
-@keyframes bounce {
+@-webkit-keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
+    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
   }
 
   50% {
     transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
+    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
+            animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
+            animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
 }
 
 .animate-bounce {
-  animation: bounce 1s infinite;
+  -webkit-animation: bounce 1s infinite;
+          animation: bounce 1s infinite;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
@@ -1721,7 +1847,22 @@ input:checked + .toggle-bg {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 1000ms linear 1 forwards;
+  -webkit-animation: fadeIn 1000ms linear 1 forwards;
+          animation: fadeIn 1000ms linear 1 forwards;
+}
+
+@-webkit-keyframes slideLeft {
+  0% {
+    transform: translateX(0px);
+  }
+
+  20% {
+    transform: translateX(260px);
+  }
+
+  100% {
+    transform: translateX(1300px);
+  }
 }
 
 @keyframes slideLeft {
@@ -1739,7 +1880,22 @@ input:checked + .toggle-bg {
 }
 
 .animate-slideLeft {
-  animation: slideLeft 1000ms linear 1 forwards;
+  -webkit-animation: slideLeft 1000ms linear 1 forwards;
+          animation: slideLeft 1000ms linear 1 forwards;
+}
+
+@-webkit-keyframes slideRight {
+  0% {
+    transform: translateX(0px);
+  }
+
+  20% {
+    transform: translateX(-260px);
+  }
+
+  100% {
+    transform: translateX(-1300px);
+  }
 }
 
 @keyframes slideRight {
@@ -1757,7 +1913,8 @@ input:checked + .toggle-bg {
 }
 
 .animate-slideRight {
-  animation: slideRight 1000ms linear 1 forwards;
+  -webkit-animation: slideRight 1000ms linear 1 forwards;
+          animation: slideRight 1000ms linear 1 forwards;
 }
 
 .cursor-default {
@@ -2294,9 +2451,9 @@ input:checked + .toggle-bg {
 }
 
 .transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -2338,18 +2495,26 @@ input:checked + .toggle-bg {
 }
 
 .animation-delay-1000 {
-  animation-delay: 1000ms;
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
 }
 
 .animation-delay-2000 {
-  animation-delay: 2000ms;
+  -webkit-animation-delay: 2000ms;
+          animation-delay: 2000ms;
 }
 
 .animation-delay-3000 {
-  animation-delay: 3000ms;
+  -webkit-animation-delay: 3000ms;
+          animation-delay: 3000ms;
 }
 
 .placeholder\:translate-x-4::-moz-placeholder {
+  --tw-translate-x: 1rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.placeholder\:translate-x-4:-ms-input-placeholder {
   --tw-translate-x: 1rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -2480,6 +2645,11 @@ input:checked + .toggle-bg {
   color: rgb(49 94 231 / var(--tw-text-opacity));
 }
 
+.placeholder\:focus\:text-\[\#315EE7\]:focus:-ms-input-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(49 94 231 / var(--tw-text-opacity));
+}
+
 .placeholder\:focus\:text-\[\#315EE7\]:focus::placeholder {
   --tw-text-opacity: 1;
   color: rgb(49 94 231 / var(--tw-text-opacity));
@@ -2582,6 +2752,11 @@ input:checked + .toggle-bg {
 }
 
 .dark .dark\:placeholder-gray-400::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.dark .dark\:placeholder-gray-400:-ms-input-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));
 }

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <title>Cart</title>
-    <link rel="icon" href="images/logo.jpeg"/>
+    <link rel="icon" href="/images/logo.jpeg"/>
 </head>
 <body>
     <div class="max-w-full h-16 bg-[#315EE7]">
@@ -14,7 +14,7 @@
        
         <div class="h-16 flex items-center">
             
-          <a href="/home"><img src=images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
+          <a href="/home"><img src=/images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
           </div>
           </a>
           
@@ -35,7 +35,7 @@
         <div class="flex items-center justify-between">
             
             <span class="text-3xl font-bold text-gray-900 dark:text-white">Price: &#x20B9; <%=item.price%></span>
-            <form action="/removeitem/<%=item.id%>" method="post">
+            <form action="/products/removeitem/<%=item.id%>" method="post">
                 <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Remove Item</button>
             </form>         
          <br>
@@ -66,15 +66,6 @@ Checkout
 </a>
 </div>
     <% } %>
-
-
-
-
-
-
-
-
-
     </div>
 </body>
 </html>

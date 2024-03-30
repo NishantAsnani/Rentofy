@@ -5,24 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="images/logo.jpeg"/>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.jpeg"/>
 </head>
 <body>
     <div class="max-w-full h-16 bg-[#315EE7]">
       
        
         <div class="h-16 flex items-center">
+
             
-          <a href="/home"><img src=images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
+            
+          <a href="/home"><img src=/images/logo.jpeg class='w-14 h-14 cursor-pointer translate-x-[38px]'  alt="" /></a>
           </div>
+          
+          
           <div class="flex justify-end relative bottom-10 right-24 text-white text-2xl cursor-pointer hover:-translate-y-2 ease-in-out duration-200">
-            <a href="cart">
             
+          <a href="/products/cart">
             <svg stroke="currentColor" fill="none" class="relative left-auto" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            
-          </a>
+          </a>  
         </div>
+        
+        
+
+        <div class="flex justify-end relative bottom-20 right-44 text-white cursor-pointer sort">
+            <a href="/products/sort"><svg id="sort" height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M6 36h12v-4h-12v4zm0-24v4h36v-4h-36zm0 14h24v-4h-24v4z"/><path d="M0 0h48v48h-48z" fill="none"/></svg></a>
+        
+        </div>
+     
 <span class="flex justify-center">
     <h1 class="text-[50px] font-semibold text-[#22215B] mt-10">Products up for rent</h1>
 </span>
@@ -30,7 +41,7 @@
 
 <div class="flex justify-center flex-wrap content-start max-h-60">
         <% for (data of productdata){%>
-            <form action="/addproduct/<%=data.id%>" method="post">    
+            <form action="/products/addproduct/<%=data.id%>" method="post">    
         <div  class="w-11/12 max-w-sm bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 mt-4 ml-4">
     
         <img class="p-8 rounded-t-lg max-h-80"  src="<%=data.image%>" alt="<%=data.description%>" />
